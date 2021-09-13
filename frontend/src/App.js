@@ -1,12 +1,24 @@
-import Todo from './components/Todo'
+import { Route, Switch } from 'react-router-dom'
+import AllMeetups from './pages/AllMeetups'
+import NewMeetup from './pages/NewMeetup'
+import Favorites from './pages/Favorites'
+import MainNavigation from './component/layout/MainNavigation'
 
 const App = () => {
     return (
         <div>
-            <h1>My Todos</h1>
-            <Todo title="Learn React" onClick={() => {}} />
-            <Todo title="Master React" onClick={() => {}} />
-            <Todo title="Explore the full React" onClick={() => {}} />
+            <MainNavigation />
+            <Switch>
+                <Route path="/" exact={true}>
+                    <AllMeetups />
+                </Route>
+                <Route path="/favorites">
+                    <Favorites />
+                </Route>
+                <Route path="/new-meetup">
+                    <NewMeetup />
+                </Route>
+            </Switch>
         </div>
     )
 }
